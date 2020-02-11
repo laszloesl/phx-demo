@@ -32,9 +32,10 @@ defmodule Demo.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:jason, "~> 1.0"},
+      {:libcluster, "~> 3.1"},
       {:phoenix, "~> 1.4.12"},
       {:phoenix_pubsub, "~> 1.1"},
-      {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end

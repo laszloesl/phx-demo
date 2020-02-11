@@ -4,8 +4,11 @@ defmodule Demo.Application do
   use Application
 
   def start(_type, _args) do
+    clustering_topologies = Application.get_env(:libcluster, :topologies)
+
     children = [
-      DemoWeb.Endpoint
+      DemoWeb.Endpoint,
+      Cluster.Supervisor.child_spec([clustering_topologies])
     ]
 
     opts = [strategy: :one_for_one, name: Demo.Supervisor]
