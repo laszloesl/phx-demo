@@ -1,27 +1,18 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Mix.Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
+import Config
 
-# General application configuration
-use Mix.Config
-
-# Configures the endpoint
 config :demo, DemoWeb.Endpoint,
+  http: [port: 4000],
   url: [host: "localhost"],
-  secret_key_base: "AqT4Up6sriUimvHpzW4y9EM7EMmXNqyq7REsyA3lgjsQS9k8NJKNDpkgbWaAGyGR",
-  render_errors: [view: DemoWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: Demo.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "sdHpQmq6Nu+XiA7mDUhoMA9gs0iEecxV/iGwJCu13J3dORzpZ1Mc/F9IF21LS2kH",
+  pubsub: [name: Demo.PubSub, adapter: Phoenix.PubSub.PG2],
+  code_reloader: true,
+  check_origin: false,
+  watchers: []
 
-# Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
