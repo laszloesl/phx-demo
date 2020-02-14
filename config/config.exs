@@ -17,9 +17,9 @@ config :phoenix, :json_library, Jason
 
 config :libcluster, :topologies,
   epmd: [
-    strategy: Elixir.Cluster.Strategy.Epmd,
+    strategy: Cluster.Strategy.Epmd,
     config: [
-      hosts: []
+      hosts: [:"demo1@esl.localhost", :"demo2@esl.localhost"]
     ]
   ]
 
